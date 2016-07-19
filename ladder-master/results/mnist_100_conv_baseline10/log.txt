@@ -1,0 +1,113 @@
+Logging into results/mnist_100_conv_baseline10/log.txt
+== COMMAND LINE ==
+run.py train --encoder-layers convf:32:5:1:1-maxpool:2:2-convv:64:3:1:1-convf:64:3:1:1-maxpool:2:2-convv:128:3:1:1-convv:10:1:1:1-globalmeanpool:6:6-fc:10 --decoder-spec 0-0-0-0-0-0-0-0-0-0 --denoising-cost-x 0,0,0,0,0,0,0,0,0,0 --num-epochs 20 --lrate-decay 0.5 --f-local-noise-std 0.45 --labeled-samples 100 --unlabeled-samples 60000 --seed 1 -- mnist_100_conv_baseline
+== PARAMETERS ==
+ zestbn              : bugfix               
+ dseed               : 1                    
+ top_c               : 1                    
+ super_noise_std     : 0.3                  
+ batch_size          : 100                  
+ dataset             : mnist                
+ valid_set_size      : 10000                
+ num_epochs          : 20                   
+ whiten_zca          : 0                    
+ unlabeled_samples   : 60000                
+ decoder_spec        : ('0', '0', '0', '0', '0', '0', '0', '0', '0', '0') 
+ valid_batch_size    : 100                  
+ denoising_cost_x    : (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0) 
+ f_local_noise_std   : (0.45,)              
+ cmd                 : train                
+ act                 : relu                 
+ lrate_decay         : 0.5                  
+ seed                : 1                    
+ lr                  : 0.002                
+ save_to             : mnist_100_conv_baseline 
+ save_dir            : results/mnist_100_conv_baseline10 
+ commit              :                      
+ contrast_norm       : 0                    
+ encoder_layers      : ('convf:32:5:1:1', 'maxpool:2:2', 'convv:64:3:1:1', 'convf:64:3:1:1', 'maxpool:2:2', 'convv:128:3:1:1', 'convv:10:1:1:1', 'globalmeanpool:6:6', 'fc:10') 
+ labeled_samples     : 100                  
+Using 0 examples for validation
+Encoder: clean, labeled
+  0: noise 0
+  f1: convf, relu, BN, noise 0.00, params [32, 5, 1, 1], dim (1, 28, 28) -> (32, 32, 32)
+  f2: maxpool, linear, BN, noise 0.00, params [2, 2], dim (32, 32, 32) -> (32, 16, 16)
+  f3: convv, relu, BN, noise 0.00, params [64, 3, 1, 1], dim (32, 16, 16) -> (64, 14, 14)
+  f4: convf, relu, BN, noise 0.00, params [64, 3, 1, 1], dim (64, 14, 14) -> (64, 16, 16)
+  f5: maxpool, linear, BN, noise 0.00, params [2, 2], dim (64, 16, 16) -> (64, 8, 8)
+  f6: convv, relu, BN, noise 0.00, params [128, 3, 1, 1], dim (64, 8, 8) -> (128, 6, 6)
+  f7: convv, relu, BN, noise 0.00, params [10, 1, 1, 1], dim (128, 6, 6) -> (10, 6, 6)
+  f8: globalmeanpool, linear, BN, noise 0.00, params [6, 6], dim (10, 6, 6) -> (10, 1, 1)
+  f9: fc, softmax, BN, noise 0.00, params 10, dim (10, 1, 1) -> (10,)
+Encoder: corr, labeled
+  0: noise 0.3
+  f1: convf, relu, BN, noise 0.45, params [32, 5, 1, 1], dim (1, 28, 28) -> (32, 32, 32)
+  f2: maxpool, linear, BN, noise 0.45, params [2, 2], dim (32, 32, 32) -> (32, 16, 16)
+  f3: convv, relu, BN, noise 0.45, params [64, 3, 1, 1], dim (32, 16, 16) -> (64, 14, 14)
+  f4: convf, relu, BN, noise 0.45, params [64, 3, 1, 1], dim (64, 14, 14) -> (64, 16, 16)
+  f5: maxpool, linear, BN, noise 0.45, params [2, 2], dim (64, 16, 16) -> (64, 8, 8)
+  f6: convv, relu, BN, noise 0.45, params [128, 3, 1, 1], dim (64, 8, 8) -> (128, 6, 6)
+  f7: convv, relu, BN, noise 0.45, params [10, 1, 1, 1], dim (128, 6, 6) -> (10, 6, 6)
+  f8: globalmeanpool, linear, BN, noise 0.45, params [6, 6], dim (10, 6, 6) -> (10, 1, 1)
+  f9: fc, softmax, BN, noise 0.45, params 10, dim (10, 1, 1) -> (10,)
+Decoder: z_corr -> z_est
+  g9:          0, , dim None -> (10,)
+  g8:          0, , dim (10,) -> (10, 1, 1)
+  g7:          0, , dim (10, 1, 1) -> (10, 6, 6)
+  g6:          0, , dim (10, 6, 6) -> (128, 6, 6)
+  g5:          0, , dim (128, 6, 6) -> (64, 8, 8)
+  g4:          0, , dim (64, 8, 8) -> (64, 16, 16)
+  g3:          0, , dim (64, 16, 16) -> (64, 14, 14)
+  g2:          0, , dim (64, 14, 14) -> (32, 16, 16)
+  g1:          0, , dim (32, 16, 16) -> (32, 32, 32)
+  g0:          0, , dim (32, 32, 32) -> (1, 28, 28)
+Found the following parameters: [f_9_c, f_9_b, f_7_b, f_6_b, f_4_b, f_3_b, f_1_b, f_1_W, f_3_W, f_4_W, f_6_W, f_7_W, f_9_W]
+Balancing 100 labels...
+Batch norm parameters: f_1_bn_mean_clean, f_1_bn_var_clean, f_2_bn_mean_clean, f_2_bn_var_clean, f_3_bn_mean_clean, f_3_bn_var_clean, f_4_bn_mean_clean, f_4_bn_var_clean, f_5_bn_mean_clean, f_5_bn_var_clean, f_6_bn_mean_clean, f_6_bn_var_clean, f_7_bn_mean_clean, f_7_bn_var_clean, f_8_bn_mean_clean, f_8_bn_var_clean, f_9_bn_mean_clean, f_9_bn_var_clean
+Balancing 100 labels...
+Batch norm parameters: f_1_bn_mean_clean, f_1_bn_var_clean, f_2_bn_mean_clean, f_2_bn_var_clean, f_3_bn_mean_clean, f_3_bn_var_clean, f_4_bn_mean_clean, f_4_bn_var_clean, f_5_bn_mean_clean, f_5_bn_var_clean, f_6_bn_mean_clean, f_6_bn_var_clean, f_7_bn_mean_clean, f_7_bn_var_clean, f_8_bn_mean_clean, f_8_bn_var_clean, f_9_bn_mean_clean, f_9_bn_var_clean
+e 0, i 0:V_C_class nan, V_E nan
+e 1, i 600:V_C_class nan, V_E nan, T_C_class 0.466
+Iter 1, lr 0.002000
+e 2, i 1200:V_C_class nan, V_E nan, T_C_class 0.123
+Iter 2, lr 0.002000
+e 3, i 1800:V_C_class nan, V_E nan, T_C_class 0.0728
+Iter 3, lr 0.002000
+e 4, i 2400:V_C_class nan, V_E nan, T_C_class 0.0519
+Iter 4, lr 0.002000
+e 5, i 3000:V_C_class nan, V_E nan, T_C_class 0.0413
+Iter 5, lr 0.002000
+e 6, i 3600:V_C_class nan, V_E nan, T_C_class 0.0344
+Iter 6, lr 0.002000
+e 7, i 4200:V_C_class nan, V_E nan, T_C_class 0.0295
+Iter 7, lr 0.002000
+e 8, i 4800:V_C_class nan, V_E nan, T_C_class 0.027
+Iter 8, lr 0.002000
+e 9, i 5400:V_C_class nan, V_E nan, T_C_class 0.0241
+Iter 9, lr 0.002000
+e 10, i 6000:V_C_class nan, V_E nan, T_C_class 0.0222
+Iter 10, lr 0.002000
+e 11, i 6600:V_C_class nan, V_E nan, T_C_class 0.0199
+Iter 11, lr 0.001800
+e 12, i 7200:V_C_class nan, V_E nan, T_C_class 0.0195
+Iter 12, lr 0.001600
+e 13, i 7800:V_C_class nan, V_E nan, T_C_class 0.019
+Iter 13, lr 0.001400
+e 14, i 8400:V_C_class nan, V_E nan, T_C_class 0.017
+Iter 14, lr 0.001200
+e 15, i 9000:V_C_class nan, V_E nan, T_C_class 0.0167
+Iter 15, lr 0.001000
+e 16, i 9600:V_C_class nan, V_E nan, T_C_class 0.0152
+Iter 16, lr 0.000800
+e 17, i 10200:V_C_class nan, V_E nan, T_C_class 0.0141
+Iter 17, lr 0.000600
+e 18, i 10800:V_C_class nan, V_E nan, T_C_class 0.0127
+Iter 18, lr 0.000400
+e 19, i 11400:V_C_class nan, V_E nan, T_C_class 0.013
+Iter 19, lr 0.000200
+e 20, i 12000:V_C_class nan, V_E nan, T_C_class 0.011, VF_C_class nan, VF_E nan
+Iter 20, lr 0.000000
+Saving to results/mnist_100_conv_baseline10/trained_params
+e 20, i 12000:V_C_class nan, V_E nan, T_C_class 0.011, VF_C_class nan, VF_E nan
+valid_final_error_rate_clean nan
+Took 1360.3 minutes

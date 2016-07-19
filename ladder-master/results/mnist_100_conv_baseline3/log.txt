@@ -1,0 +1,29 @@
+Logging into results/mnist_100_conv_baseline3/log.txt
+== COMMAND LINE ==
+run.py train --encoder-layers convf:32:5:1:1-maxpool:2:2-convv:64:3:1:1-convf:64:3:1:1-maxpool:2:2-convv:128:3:1:1-convv:10:1:1:1-globalmeanpool:6:6-fc:10 --decoder-spec 0-0-0-0-0-0-0-0-0-0 --denoising-cost-x 0,0,0,0,0,0,0,0,0,0 --num-epochs 20 --lrate-decay 0.5 --f-local-noise-std 0.45 --labeled-samples 100 --unlabeled-samples 60000 --seed 1 -- mnist_100_conv_baseline
+== PARAMETERS ==
+ zestbn              : bugfix               
+ dseed               : 1                    
+ top_c               : 1                    
+ super_noise_std     : 0.3                  
+ batch_size          : 100                  
+ dataset             : mnist                
+ valid_set_size      : 10000                
+ num_epochs          : 20                   
+ whiten_zca          : 0                    
+ unlabeled_samples   : 60000                
+ decoder_spec        : ('0', '0', '0', '0', '0', '0', '0', '0', '0', '0') 
+ valid_batch_size    : 100                  
+ denoising_cost_x    : (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0) 
+ f_local_noise_std   : (0.45,)              
+ cmd                 : train                
+ act                 : relu                 
+ lrate_decay         : 0.5                  
+ seed                : 1                    
+ lr                  : 0.002                
+ save_to             : mnist_100_conv_baseline 
+ save_dir            : results/mnist_100_conv_baseline3 
+ commit              :                      
+ contrast_norm       : 0                    
+ encoder_layers      : ('convf:32:5:1:1', 'maxpool:2:2', 'convv:64:3:1:1', 'convf:64:3:1:1', 'maxpool:2:2', 'convv:128:3:1:1', 'convv:10:1:1:1', 'globalmeanpool:6:6', 'fc:10') 
+ labeled_samples     : 100                  

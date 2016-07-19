@@ -1,0 +1,362 @@
+Logging into results/mnist_all_baseline4/log.txt
+== COMMAND LINE ==
+run.py train --encoder-layers 1000-500-250-250-250-10 --decoder-spec 0-0-0-0-0-0-0 --denoising-cost-x 0,0,0,0,0,0,0 --labeled-samples 60000 --unlabeled-samples 60000 --f-local-noise-std 0.5 --seed 1 -- mnist_all_baseline
+== PARAMETERS ==
+ zestbn              : bugfix               
+ dseed               : 1                    
+ top_c               : 1                    
+ super_noise_std     : 0.3                  
+ batch_size          : 100                  
+ dataset             : mnist                
+ valid_set_size      : 10000                
+ num_epochs          : 150                  
+ whiten_zca          : 0                    
+ unlabeled_samples   : 60000                
+ decoder_spec        : ('0', '0', '0', '0', '0', '0', '0') 
+ valid_batch_size    : 100                  
+ denoising_cost_x    : (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0) 
+ f_local_noise_std   : (0.5,)               
+ cmd                 : train                
+ act                 : relu                 
+ lrate_decay         : 0.67                 
+ seed                : 1                    
+ lr                  : 0.002                
+ save_to             : mnist_all_baseline   
+ save_dir            : results/mnist_all_baseline4 
+ commit              :                      
+ contrast_norm       : 0                    
+ encoder_layers      : ('1000', '500', '250', '250', '250', '10') 
+ labeled_samples     : 60000                
+Using 0 examples for validation
+Encoder: clean, labeled
+  0: noise 0
+  f1: fc, relu, BN, noise 0.00, params 1000, dim (1, 28, 28) -> (1000,)
+  f2: fc, relu, BN, noise 0.00, params 500, dim (1000,) -> (500,)
+  f3: fc, relu, BN, noise 0.00, params 250, dim (500,) -> (250,)
+  f4: fc, relu, BN, noise 0.00, params 250, dim (250,) -> (250,)
+  f5: fc, relu, BN, noise 0.00, params 250, dim (250,) -> (250,)
+  f6: fc, softmax, BN, noise 0.00, params 10, dim (250,) -> (10,)
+Encoder: corr, labeled
+  0: noise 0.3
+  f1: fc, relu, BN, noise 0.50, params 1000, dim (1, 28, 28) -> (1000,)
+  f2: fc, relu, BN, noise 0.50, params 500, dim (1000,) -> (500,)
+  f3: fc, relu, BN, noise 0.50, params 250, dim (500,) -> (250,)
+  f4: fc, relu, BN, noise 0.50, params 250, dim (250,) -> (250,)
+  f5: fc, relu, BN, noise 0.50, params 250, dim (250,) -> (250,)
+  f6: fc, softmax, BN, noise 0.50, params 10, dim (250,) -> (10,)
+Decoder: z_corr -> z_est
+  g6:          0, , dim None -> (10,)
+  g5:          0, , dim (10,) -> (250,)
+  g4:          0, , dim (250,) -> (250,)
+  g3:          0, , dim (250,) -> (250,)
+  g2:          0, , dim (250,) -> (500,)
+  g1:          0, , dim (500,) -> (1000,)
+  g0:          0, , dim (1000,) -> (1, 28, 28)
+Found the following parameters: [f_6_c, f_6_b, f_5_b, f_4_b, f_3_b, f_2_b, f_1_b, f_1_W, f_2_W, f_3_W, f_4_W, f_5_W, f_6_W]
+Batch norm parameters: f_1_bn_mean_clean, f_1_bn_var_clean, f_2_bn_mean_clean, f_2_bn_var_clean, f_3_bn_mean_clean, f_3_bn_var_clean, f_4_bn_mean_clean, f_4_bn_var_clean, f_5_bn_mean_clean, f_5_bn_var_clean, f_6_bn_mean_clean, f_6_bn_var_clean
+Batch norm parameters: f_1_bn_mean_clean, f_1_bn_var_clean, f_2_bn_mean_clean, f_2_bn_var_clean, f_3_bn_mean_clean, f_3_bn_var_clean, f_4_bn_mean_clean, f_4_bn_var_clean, f_5_bn_mean_clean, f_5_bn_var_clean, f_6_bn_mean_clean, f_6_bn_var_clean
+e 0, i 0:V_C_class nan, V_E nan
+e 1, i 600:V_C_class nan, V_E nan, T_C_class 0.574
+Iter 1, lr 0.002000
+e 2, i 1200:V_C_class nan, V_E nan, T_C_class 0.358
+Iter 2, lr 0.002000
+e 3, i 1800:V_C_class nan, V_E nan, T_C_class 0.303
+Iter 3, lr 0.002000
+e 4, i 2400:V_C_class nan, V_E nan, T_C_class 0.269
+Iter 4, lr 0.002000
+e 5, i 3000:V_C_class nan, V_E nan, T_C_class 0.25
+Iter 5, lr 0.002000
+e 6, i 3600:V_C_class nan, V_E nan, T_C_class 0.234
+Iter 6, lr 0.002000
+e 7, i 4200:V_C_class nan, V_E nan, T_C_class 0.22
+Iter 7, lr 0.002000
+e 8, i 4800:V_C_class nan, V_E nan, T_C_class 0.214
+Iter 8, lr 0.002000
+e 9, i 5400:V_C_class nan, V_E nan, T_C_class 0.204
+Iter 9, lr 0.002000
+e 10, i 6000:V_C_class nan, V_E nan, T_C_class 0.194
+Iter 10, lr 0.002000
+e 11, i 6600:V_C_class nan, V_E nan, T_C_class 0.188
+Iter 11, lr 0.002000
+e 12, i 7200:V_C_class nan, V_E nan, T_C_class 0.185
+Iter 12, lr 0.002000
+e 13, i 7800:V_C_class nan, V_E nan, T_C_class 0.18
+Iter 13, lr 0.002000
+e 14, i 8400:V_C_class nan, V_E nan, T_C_class 0.17
+Iter 14, lr 0.002000
+e 15, i 9000:V_C_class nan, V_E nan, T_C_class 0.169
+Iter 15, lr 0.002000
+e 16, i 9600:V_C_class nan, V_E nan, T_C_class 0.166
+Iter 16, lr 0.002000
+e 17, i 10200:V_C_class nan, V_E nan, T_C_class 0.16
+Iter 17, lr 0.002000
+e 18, i 10800:V_C_class nan, V_E nan, T_C_class 0.156
+Iter 18, lr 0.002000
+e 19, i 11400:V_C_class nan, V_E nan, T_C_class 0.15
+Iter 19, lr 0.002000
+e 20, i 12000:V_C_class nan, V_E nan, T_C_class 0.148
+Iter 20, lr 0.002000
+e 21, i 12600:V_C_class nan, V_E nan, T_C_class 0.151
+Iter 21, lr 0.002000
+e 22, i 13200:V_C_class nan, V_E nan, T_C_class 0.148
+Iter 22, lr 0.002000
+e 23, i 13800:V_C_class nan, V_E nan, T_C_class 0.141
+Iter 23, lr 0.002000
+e 24, i 14400:V_C_class nan, V_E nan, T_C_class 0.143
+Iter 24, lr 0.002000
+e 25, i 15000:V_C_class nan, V_E nan, T_C_class 0.137
+Iter 25, lr 0.002000
+e 26, i 15600:V_C_class nan, V_E nan, T_C_class 0.134
+Iter 26, lr 0.002000
+e 27, i 16200:V_C_class nan, V_E nan, T_C_class 0.133
+Iter 27, lr 0.002000
+e 28, i 16800:V_C_class nan, V_E nan, T_C_class 0.129
+Iter 28, lr 0.002000
+e 29, i 17400:V_C_class nan, V_E nan, T_C_class 0.125
+Iter 29, lr 0.002000
+e 30, i 18000:V_C_class nan, V_E nan, T_C_class 0.129
+Iter 30, lr 0.002000
+e 31, i 18600:V_C_class nan, V_E nan, T_C_class 0.124
+Iter 31, lr 0.002000
+e 32, i 19200:V_C_class nan, V_E nan, T_C_class 0.128
+Iter 32, lr 0.002000
+e 33, i 19800:V_C_class nan, V_E nan, T_C_class 0.12
+Iter 33, lr 0.002000
+e 34, i 20400:V_C_class nan, V_E nan, T_C_class 0.12
+Iter 34, lr 0.002000
+e 35, i 21000:V_C_class nan, V_E nan, T_C_class 0.118
+Iter 35, lr 0.002000
+e 36, i 21600:V_C_class nan, V_E nan, T_C_class 0.123
+Iter 36, lr 0.002000
+e 37, i 22200:V_C_class nan, V_E nan, T_C_class 0.117
+Iter 37, lr 0.002000
+e 38, i 22800:V_C_class nan, V_E nan, T_C_class 0.111
+Iter 38, lr 0.002000
+e 39, i 23400:V_C_class nan, V_E nan, T_C_class 0.114
+Iter 39, lr 0.002000
+e 40, i 24000:V_C_class nan, V_E nan, T_C_class 0.117
+Iter 40, lr 0.002000
+e 41, i 24600:V_C_class nan, V_E nan, T_C_class 0.112
+Iter 41, lr 0.002000
+e 42, i 25200:V_C_class nan, V_E nan, T_C_class 0.108
+Iter 42, lr 0.002000
+e 43, i 25800:V_C_class nan, V_E nan, T_C_class 0.112
+Iter 43, lr 0.002000
+e 44, i 26400:V_C_class nan, V_E nan, T_C_class 0.11
+Iter 44, lr 0.002000
+e 45, i 27000:V_C_class nan, V_E nan, T_C_class 0.105
+Iter 45, lr 0.002000
+e 46, i 27600:V_C_class nan, V_E nan, T_C_class 0.106
+Iter 46, lr 0.002000
+e 47, i 28200:V_C_class nan, V_E nan, T_C_class 0.104
+Iter 47, lr 0.002000
+e 48, i 28800:V_C_class nan, V_E nan, T_C_class 0.102
+Iter 48, lr 0.002000
+e 49, i 29400:V_C_class nan, V_E nan, T_C_class 0.107
+Iter 49, lr 0.002000
+e 50, i 30000:V_C_class nan, V_E nan, T_C_class 0.102
+Iter 50, lr 0.002000
+e 51, i 30600:V_C_class nan, V_E nan, T_C_class 0.0989
+Iter 51, lr 0.002000
+e 52, i 31200:V_C_class nan, V_E nan, T_C_class 0.106
+Iter 52, lr 0.002000
+e 53, i 31800:V_C_class nan, V_E nan, T_C_class 0.104
+Iter 53, lr 0.002000
+e 54, i 32400:V_C_class nan, V_E nan, T_C_class 0.0983
+Iter 54, lr 0.002000
+e 55, i 33000:V_C_class nan, V_E nan, T_C_class 0.0962
+Iter 55, lr 0.002000
+e 56, i 33600:V_C_class nan, V_E nan, T_C_class 0.0953
+Iter 56, lr 0.002000
+e 57, i 34200:V_C_class nan, V_E nan, T_C_class 0.0993
+Iter 57, lr 0.002000
+e 58, i 34800:V_C_class nan, V_E nan, T_C_class 0.0943
+Iter 58, lr 0.002000
+e 59, i 35400:V_C_class nan, V_E nan, T_C_class 0.0984
+Iter 59, lr 0.002000
+e 60, i 36000:V_C_class nan, V_E nan, T_C_class 0.095
+Iter 60, lr 0.002000
+e 61, i 36600:V_C_class nan, V_E nan, T_C_class 0.0951
+Iter 61, lr 0.002000
+e 62, i 37200:V_C_class nan, V_E nan, T_C_class 0.0951
+Iter 62, lr 0.002000
+e 63, i 37800:V_C_class nan, V_E nan, T_C_class 0.0939
+Iter 63, lr 0.002000
+e 64, i 38400:V_C_class nan, V_E nan, T_C_class 0.0926
+Iter 64, lr 0.002000
+e 65, i 39000:V_C_class nan, V_E nan, T_C_class 0.0914
+Iter 65, lr 0.002000
+e 66, i 39600:V_C_class nan, V_E nan, T_C_class 0.0894
+Iter 66, lr 0.002000
+e 67, i 40200:V_C_class nan, V_E nan, T_C_class 0.0911
+Iter 67, lr 0.002000
+e 68, i 40800:V_C_class nan, V_E nan, T_C_class 0.0932
+Iter 68, lr 0.002000
+e 69, i 41400:V_C_class nan, V_E nan, T_C_class 0.089
+Iter 69, lr 0.002000
+e 70, i 42000:V_C_class nan, V_E nan, T_C_class 0.088
+Iter 70, lr 0.002000
+e 71, i 42600:V_C_class nan, V_E nan, T_C_class 0.0904
+Iter 71, lr 0.002000
+e 72, i 43200:V_C_class nan, V_E nan, T_C_class 0.0923
+Iter 72, lr 0.002000
+e 73, i 43800:V_C_class nan, V_E nan, T_C_class 0.0878
+Iter 73, lr 0.002000
+e 74, i 44400:V_C_class nan, V_E nan, T_C_class 0.0846
+Iter 74, lr 0.002000
+e 75, i 45000:V_C_class nan, V_E nan, T_C_class 0.0924
+Iter 75, lr 0.002000
+e 76, i 45600:V_C_class nan, V_E nan, T_C_class 0.0883
+Iter 76, lr 0.002000
+e 77, i 46200:V_C_class nan, V_E nan, T_C_class 0.087
+Iter 77, lr 0.002000
+e 78, i 46800:V_C_class nan, V_E nan, T_C_class 0.0879
+Iter 78, lr 0.002000
+e 79, i 47400:V_C_class nan, V_E nan, T_C_class 0.0882
+Iter 79, lr 0.002000
+e 80, i 48000:V_C_class nan, V_E nan, T_C_class 0.0861
+Iter 80, lr 0.002000
+e 81, i 48600:V_C_class nan, V_E nan, T_C_class 0.0845
+Iter 81, lr 0.002000
+e 82, i 49200:V_C_class nan, V_E nan, T_C_class 0.0847
+Iter 82, lr 0.002000
+e 83, i 49800:V_C_class nan, V_E nan, T_C_class 0.0834
+Iter 83, lr 0.002000
+e 84, i 50400:V_C_class nan, V_E nan, T_C_class 0.0829
+Iter 84, lr 0.002000
+e 85, i 51000:V_C_class nan, V_E nan, T_C_class 0.0831
+Iter 85, lr 0.002000
+e 86, i 51600:V_C_class nan, V_E nan, T_C_class 0.0836
+Iter 86, lr 0.002000
+e 87, i 52200:V_C_class nan, V_E nan, T_C_class 0.0825
+Iter 87, lr 0.002000
+e 88, i 52800:V_C_class nan, V_E nan, T_C_class 0.0778
+Iter 88, lr 0.002000
+e 89, i 53400:V_C_class nan, V_E nan, T_C_class 0.084
+Iter 89, lr 0.002000
+e 90, i 54000:V_C_class nan, V_E nan, T_C_class 0.0845
+Iter 90, lr 0.002000
+e 91, i 54600:V_C_class nan, V_E nan, T_C_class 0.079
+Iter 91, lr 0.002000
+e 92, i 55200:V_C_class nan, V_E nan, T_C_class 0.0801
+Iter 92, lr 0.002000
+e 93, i 55800:V_C_class nan, V_E nan, T_C_class 0.0804
+Iter 93, lr 0.002000
+e 94, i 56400:V_C_class nan, V_E nan, T_C_class 0.0835
+Iter 94, lr 0.002000
+e 95, i 57000:V_C_class nan, V_E nan, T_C_class 0.078
+Iter 95, lr 0.002000
+e 96, i 57600:V_C_class nan, V_E nan, T_C_class 0.0802
+Iter 96, lr 0.002000
+e 97, i 58200:V_C_class nan, V_E nan, T_C_class 0.0795
+Iter 97, lr 0.002000
+e 98, i 58800:V_C_class nan, V_E nan, T_C_class 0.0832
+Iter 98, lr 0.002000
+e 99, i 59400:V_C_class nan, V_E nan, T_C_class 0.0793
+Iter 99, lr 0.002000
+e 100, i 60000:V_C_class nan, V_E nan, T_C_class 0.0759
+Iter 100, lr 0.002000
+e 101, i 60600:V_C_class nan, V_E nan, T_C_class 0.0787
+Iter 101, lr 0.001980
+e 102, i 61200:V_C_class nan, V_E nan, T_C_class 0.0736
+Iter 102, lr 0.001939
+e 103, i 61800:V_C_class nan, V_E nan, T_C_class 0.0749
+Iter 103, lr 0.001899
+e 104, i 62400:V_C_class nan, V_E nan, T_C_class 0.0738
+Iter 104, lr 0.001859
+e 105, i 63000:V_C_class nan, V_E nan, T_C_class 0.0738
+Iter 105, lr 0.001818
+e 106, i 63600:V_C_class nan, V_E nan, T_C_class 0.0735
+Iter 106, lr 0.001778
+e 107, i 64200:V_C_class nan, V_E nan, T_C_class 0.0765
+Iter 107, lr 0.001737
+e 108, i 64800:V_C_class nan, V_E nan, T_C_class 0.0718
+Iter 108, lr 0.001697
+e 109, i 65400:V_C_class nan, V_E nan, T_C_class 0.0708
+Iter 109, lr 0.001657
+e 110, i 66000:V_C_class nan, V_E nan, T_C_class 0.0697
+Iter 110, lr 0.001616
+e 111, i 66600:V_C_class nan, V_E nan, T_C_class 0.0696
+Iter 111, lr 0.001576
+e 112, i 67200:V_C_class nan, V_E nan, T_C_class 0.0701
+Iter 112, lr 0.001535
+e 113, i 67800:V_C_class nan, V_E nan, T_C_class 0.0682
+Iter 113, lr 0.001495
+e 114, i 68400:V_C_class nan, V_E nan, T_C_class 0.0682
+Iter 114, lr 0.001455
+e 115, i 69000:V_C_class nan, V_E nan, T_C_class 0.0668
+Iter 115, lr 0.001414
+e 116, i 69600:V_C_class nan, V_E nan, T_C_class 0.0681
+Iter 116, lr 0.001374
+e 117, i 70200:V_C_class nan, V_E nan, T_C_class 0.0681
+Iter 117, lr 0.001333
+e 118, i 70800:V_C_class nan, V_E nan, T_C_class 0.065
+Iter 118, lr 0.001293
+e 119, i 71400:V_C_class nan, V_E nan, T_C_class 0.066
+Iter 119, lr 0.001253
+e 120, i 72000:V_C_class nan, V_E nan, T_C_class 0.0641
+Iter 120, lr 0.001212
+e 121, i 72600:V_C_class nan, V_E nan, T_C_class 0.064
+Iter 121, lr 0.001172
+e 122, i 73200:V_C_class nan, V_E nan, T_C_class 0.0624
+Iter 122, lr 0.001131
+e 123, i 73800:V_C_class nan, V_E nan, T_C_class 0.0648
+Iter 123, lr 0.001091
+e 124, i 74400:V_C_class nan, V_E nan, T_C_class 0.0604
+Iter 124, lr 0.001051
+e 125, i 75000:V_C_class nan, V_E nan, T_C_class 0.0613
+Iter 125, lr 0.001010
+e 126, i 75600:V_C_class nan, V_E nan, T_C_class 0.0623
+Iter 126, lr 0.000970
+e 127, i 76200:V_C_class nan, V_E nan, T_C_class 0.0591
+Iter 127, lr 0.000929
+e 128, i 76800:V_C_class nan, V_E nan, T_C_class 0.0602
+Iter 128, lr 0.000889
+e 129, i 77400:V_C_class nan, V_E nan, T_C_class 0.06
+Iter 129, lr 0.000848
+e 130, i 78000:V_C_class nan, V_E nan, T_C_class 0.0589
+Iter 130, lr 0.000808
+e 131, i 78600:V_C_class nan, V_E nan, T_C_class 0.0611
+Iter 131, lr 0.000768
+e 132, i 79200:V_C_class nan, V_E nan, T_C_class 0.0569
+Iter 132, lr 0.000727
+e 133, i 79800:V_C_class nan, V_E nan, T_C_class 0.06
+Iter 133, lr 0.000687
+e 134, i 80400:V_C_class nan, V_E nan, T_C_class 0.0568
+Iter 134, lr 0.000646
+e 135, i 81000:V_C_class nan, V_E nan, T_C_class 0.0583
+Iter 135, lr 0.000606
+e 136, i 81600:V_C_class nan, V_E nan, T_C_class 0.0588
+Iter 136, lr 0.000566
+e 137, i 82200:V_C_class nan, V_E nan, T_C_class 0.0556
+Iter 137, lr 0.000525
+e 138, i 82800:V_C_class nan, V_E nan, T_C_class 0.0549
+Iter 138, lr 0.000485
+e 139, i 83400:V_C_class nan, V_E nan, T_C_class 0.0543
+Iter 139, lr 0.000444
+e 140, i 84000:V_C_class nan, V_E nan, T_C_class 0.0576
+Iter 140, lr 0.000404
+e 141, i 84600:V_C_class nan, V_E nan, T_C_class 0.0516
+Iter 141, lr 0.000364
+e 142, i 85200:V_C_class nan, V_E nan, T_C_class 0.0529
+Iter 142, lr 0.000323
+e 143, i 85800:V_C_class nan, V_E nan, T_C_class 0.055
+Iter 143, lr 0.000283
+e 144, i 86400:V_C_class nan, V_E nan, T_C_class 0.0524
+Iter 144, lr 0.000242
+e 145, i 87000:V_C_class nan, V_E nan, T_C_class 0.0527
+Iter 145, lr 0.000202
+e 146, i 87600:V_C_class nan, V_E nan, T_C_class 0.0512
+Iter 146, lr 0.000162
+e 147, i 88200:V_C_class nan, V_E nan, T_C_class 0.0524
+Iter 147, lr 0.000121
+e 148, i 88800:V_C_class nan, V_E nan, T_C_class 0.0528
+Iter 148, lr 0.000081
+e 149, i 89400:V_C_class nan, V_E nan, T_C_class 0.0518
+Iter 149, lr 0.000040
+e 150, i 90000:V_C_class nan, V_E nan, T_C_class 0.0528, VF_C_class nan, VF_E nan
+Iter 150, lr 0.000000
+Saving to results/mnist_all_baseline4/trained_params
+e 150, i 90000:V_C_class nan, V_E nan, T_C_class 0.0528, VF_C_class nan, VF_E nan
+valid_final_error_rate_clean nan
+Took 139.1 minutes

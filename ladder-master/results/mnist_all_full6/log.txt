@@ -1,0 +1,55 @@
+Logging into results/mnist_all_full6/log.txt
+== COMMAND LINE ==
+run.py train --encoder-layers 1000-500-250-250-250-10 --decoder-spec gauss --denoising-cost-x 1000,1,0.01,0.01,0.01,0.01,0.01 --labeled-samples 60000 --unlabeled-samples 60000 --seed 1 -- mnist_all_full
+== PARAMETERS ==
+ zestbn              : bugfix               
+ dseed               : 1                    
+ top_c               : 1                    
+ super_noise_std     : 0.3                  
+ batch_size          : 100                  
+ dataset             : mnist                
+ valid_set_size      : 10000                
+ num_epochs          : 150                  
+ whiten_zca          : 0                    
+ unlabeled_samples   : 60000                
+ decoder_spec        : ('gauss',)           
+ valid_batch_size    : 100                  
+ denoising_cost_x    : (1000.0, 1.0, 0.01, 0.01, 0.01, 0.01, 0.01) 
+ f_local_noise_std   : 0.3                  
+ cmd                 : train                
+ act                 : relu                 
+ lrate_decay         : 0.67                 
+ seed                : 1                    
+ lr                  : 0.002                
+ save_to             : mnist_all_full       
+ save_dir            : results/mnist_all_full6 
+ commit              :                      
+ contrast_norm       : 0                    
+ encoder_layers      : ('1000', '500', '250', '250', '250', '10') 
+ labeled_samples     : 60000                
+Using 0 examples for validation
+Encoder: clean, labeled
+  0: noise 0
+  f1: fc, relu, BN, noise 0.00, params 1000, dim (1, 28, 28) -> (1000,)
+  f2: fc, relu, BN, noise 0.00, params 500, dim (1000,) -> (500,)
+  f3: fc, relu, BN, noise 0.00, params 250, dim (500,) -> (250,)
+  f4: fc, relu, BN, noise 0.00, params 250, dim (250,) -> (250,)
+  f5: fc, relu, BN, noise 0.00, params 250, dim (250,) -> (250,)
+  f6: fc, softmax, BN, noise 0.00, params 10, dim (250,) -> (10,)
+Encoder: corr, labeled
+  0: noise 0.3
+  f1: fc, relu, BN, noise 0.30, params 1000, dim (1, 28, 28) -> (1000,)
+  f2: fc, relu, BN, noise 0.30, params 500, dim (1000,) -> (500,)
+  f3: fc, relu, BN, noise 0.30, params 250, dim (500,) -> (250,)
+  f4: fc, relu, BN, noise 0.30, params 250, dim (250,) -> (250,)
+  f5: fc, relu, BN, noise 0.30, params 250, dim (250,) -> (250,)
+  f6: fc, softmax, BN, noise 0.30, params 10, dim (250,) -> (10,)
+Decoder: z_corr -> z_est
+  g6:      gauss, denois 0.01, dim None -> (10,)
+  g5:      gauss, denois 0.01, dim (10,) -> (250,)
+  g4:      gauss, denois 0.01, dim (250,) -> (250,)
+  g3:      gauss, denois 0.01, dim (250,) -> (250,)
+  g2:      gauss, denois 0.01, dim (250,) -> (500,)
+  g1:      gauss, denois 1.00, dim (500,) -> (1000,)
+  g0:      gauss, denois 1000.00, dim (1000,) -> (1, 28, 28)
+Found the following parameters: [f_5_b, f_4_b, f_3_b, f_2_b, f_1_b, g_6_a5, f_6_c, f_6_b, g_6_a4, g_6_a3, g_6_a2, g_6_a1, g_6_a10, g_6_a9, g_6_a8, g_6_a7, g_6_a6, g_5_a5, g_5_a4, g_5_a3, g_5_a2, g_5_a1, g_5_a10, g_5_a9, g_5_a8, g_5_a7, g_5_a6, g_4_a5, g_4_a4, g_4_a3, g_4_a2, g_4_a1, g_4_a10, g_4_a9, g_4_a8, g_4_a7, g_4_a6, g_3_a5, g_3_a4, g_3_a3, g_3_a2, g_3_a1, g_3_a10, g_3_a9, g_3_a8, g_3_a7, g_3_a6, g_2_a5, g_2_a4, g_2_a3, g_2_a2, g_2_a1, g_2_a10, g_2_a9, g_2_a8, g_2_a7, g_2_a6, g_1_a5, g_1_a4, g_1_a3, g_1_a2, g_1_a1, g_1_a10, g_1_a9, g_1_a8, g_1_a7, g_1_a6, g_0_a5, g_0_a4, g_0_a3, g_0_a2, g_0_a1, g_0_a10, g_0_a9, g_0_a8, g_0_a7, g_0_a6, f_1_W, f_2_W, f_3_W, f_4_W, f_5_W, f_6_W, g_5_W, g_4_W, g_3_W, g_2_W, g_1_W, g_0_W]

@@ -1,0 +1,41 @@
+Logging into results/mnist_100_conv_fc1/log.txt
+== COMMAND LINE ==
+run.py train --encoder-layers convv:1000:26:1:1-convv:500:1:1:1-convv:250:1:1:1-convv:250:1:1:1-convv:250:1:1:1-convv:10:1:1:1-globalmeanpool:0 --decoder-spec gauss --denoising-cost-x 1000,10,0.1,0.1,0.1,0.1,0.1,0.1 --labeled-samples 100 --unlabeled-samples 60000 --seed 1 -- mnist_100_conv_fc
+== PARAMETERS ==
+ zestbn              : bugfix               
+ dseed               : 1                    
+ top_c               : 1                    
+ super_noise_std     : 0.3                  
+ batch_size          : 100                  
+ dataset             : mnist                
+ valid_set_size      : 10000                
+ num_epochs          : 150                  
+ whiten_zca          : 0                    
+ unlabeled_samples   : 60000                
+ decoder_spec        : ('gauss',)           
+ valid_batch_size    : 100                  
+ denoising_cost_x    : (1000.0, 10.0, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1) 
+ f_local_noise_std   : 0.3                  
+ cmd                 : train                
+ act                 : relu                 
+ lrate_decay         : 0.67                 
+ seed                : 1                    
+ lr                  : 0.002                
+ save_to             : mnist_100_conv_fc    
+ save_dir            : results/mnist_100_conv_fc1 
+ commit              :                      
+ contrast_norm       : 0                    
+ encoder_layers      : ('convv:1000:26:1:1', 'convv:500:1:1:1', 'convv:250:1:1:1', 'convv:250:1:1:1', 'convv:250:1:1:1', 'convv:10:1:1:1', 'globalmeanpool:0') 
+ labeled_samples     : 100                  
+Using 0 examples for validation
+Encoder: clean, labeled
+  0: noise 0
+  f1: convv, relu, BN, noise 0.00, params [1000, 26, 1, 1], dim (1, 28, 28) -> (1000, 3, 3)
+  f2: convv, relu, BN, noise 0.00, params [500, 1, 1, 1], dim (1000, 3, 3) -> (500, 3, 3)
+  f3: convv, relu, BN, noise 0.00, params [250, 1, 1, 1], dim (500, 3, 3) -> (250, 3, 3)
+  f4: convv, relu, BN, noise 0.00, params [250, 1, 1, 1], dim (250, 3, 3) -> (250, 3, 3)
+  f5: convv, relu, BN, noise 0.00, params [250, 1, 1, 1], dim (250, 3, 3) -> (250, 3, 3)
+  f6: convv, relu, BN, noise 0.00, params [10, 1, 1, 1], dim (250, 3, 3) -> (10, 3, 3)
+  f7: globalmeanpool, softmax, BN, noise 0.00, params 0, dim (10, 3, 3) -> (10, 1, 1)
+Encoder: corr, labeled
+  0: noise 0.3
